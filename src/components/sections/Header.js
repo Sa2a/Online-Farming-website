@@ -14,7 +14,7 @@ import {
     NavbarToggler,
     NavItem
 } from 'reactstrap';
-import { homePage, mapStateToPropsCategoryDocs, productsPage } from '../../ulilities/constants';
+import { aboutUsPage, contactUsPage, homePage, mapStateToPropsCategoryDocs, productsPage } from '../../ulilities/constants';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -83,6 +83,25 @@ class Header extends Component {
                     }
                     />
                 </NavItem>
+                <NavItem style={this.navItemStyle} >
+                    <NavLink to={aboutUsPage}>
+                        <button type="button" className="btn btn-outline-success">من نحن</button>
+
+                    </NavLink>
+                </NavItem>
+                <NavItem style={this.navItemStyle} >
+                    <NavLink to={contactUsPage}>
+                        <button type="button" className="btn btn-outline-success">تواصل معنا</button>
+
+                    </NavLink>
+                </NavItem>
+                {/* <NavItem>
+                <a href="https://www.facebook.com/angularjswiki" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6.0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9.0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7.0 24.8 11.1 24.8 24.7z">
+                    </path></svg></a>
+                </NavItem> */}
+
             </Nav>
         );
     }
@@ -91,12 +110,12 @@ class Header extends Component {
         return (
 <>
             <Navbar dir="rtl" fixed='top' light expand="md" style={{
-                marginLeft: 100, marginRight: 100,
+                margin:"auto",
                 backgroundColor: "white",
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
-
-                alignSelf: 'stretch'
+                display: 'flex',  justifyContent:'center', alignItems:'center',
+                alignSelf: 'stretch',
             }}>
                 <NavbarBrand>
                     <Link to="/home" className="left brand-logo" style={{ color: 'inherit', textDecoration: 'inherit' }}>

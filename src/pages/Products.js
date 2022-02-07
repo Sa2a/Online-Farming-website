@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Input } from 'reactstrap';
-import { fbCategoryCollection, fbProductCollection, homePage, Item } from '../ulilities/constants';
+import { fbCategoryCollection, fbProductCollection, homePage, Item, mapStateToPropsCategoryDocs } from '../ulilities/constants';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -8,6 +8,8 @@ import { db } from '../config/fb_config';
 import CategoryCard from '../components/CategoryCard';
 import { useLocation, useParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import SectionHeader from '../components/sections/SectionHeader';
+import { connect } from 'react-redux';
 
 
 // function getParams(){
@@ -62,10 +64,19 @@ async function getProducts(setProducts, id) {
 function Products(props) {
   const [products, setProducts] = useState([]);
   const { categoryID } = useParams();
-  getProducts(setProducts, categoryID);
-
-  return <div dir="rtl" className="archive post-type-archive post-type-archive-product logged-in admin-bar wp-custom-logo theme-astra woocommerce-shop woocommerce woocommerce-page woocommerce-js columns-3 tablet-columns-3 mobile-columns-1 ast-woo-shop-archive ast-woocommerce-cart-menu ast-replace-site-logo-transparent ast-inherit-site-logo-transparent ast-hfb-header ast-desktop ast-separate-container ast-no-sidebar astra-3.7.6 elementor-default elementor-kit-3049 customize-support ast-mouse-clicked"
-    style={{ "data-new-gr-c-s-check-loaded": "14.1046.0", "data-gr-ext-installed": true }}>
+  useEffect(()=>{
+    if (products.length===0){
+      getProducts(setProducts, categoryID);
+    }
+  },[])
+  const categoryDocs = props.categoryDocs;
+  let category =categoryDocs.find((doc)=>doc.id ===categoryID);
+  const categoryName = category?category.data().name:"لا يوجد قسم";
+  return <>
+  
+  <SectionHeader name={categoryName} style={{marginTop:100}}/>
+  <div dir="rtl" className="archive post-type-archive post-type-archive-product logged-in admin-bar wp-custom-logo theme-astra woocommerce-shop woocommerce woocommerce-page woocommerce-js columns-3 tablet-columns-3 mobile-columns-1 ast-woo-shop-archive ast-woocommerce-cart-menu ast-replace-site-logo-transparent ast-inherit-site-logo-transparent ast-hfb-header ast-desktop ast-separate-container ast-no-sidebar astra-3.7.6 elementor-default elementor-kit-3049 customize-support ast-mouse-clicked"
+    style={{ dataNewGrCSCheckLoaded:"14.1046.0",dataGrExtInstalled: true.valueOf,backgroundColor:"gray" }}>
     <div id="content" className="site-content">
       <div className="ast-container">
         <div id="primary" className="content-area primary" >
@@ -128,7 +139,7 @@ function Products(props) {
       </div>
     </div>
   </div>
-    ;
+  </>;
 
 }
-export default Products;
+export default connect(mapStateToPropsCategoryDocs)(Products);

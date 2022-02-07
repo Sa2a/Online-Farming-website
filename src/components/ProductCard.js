@@ -10,7 +10,7 @@ export default function ProductCard(props) {
   return (
   
     <Card sx={{ maxWidth: 400 }} key={props.id}>
-      <CardActionArea style={{height:'20rem'}} >
+      <CardActionArea style={{height:'20rem'}} href={"/productitem"} >
         <CardMedia style={{
     flex: 1,
     width: '100%',

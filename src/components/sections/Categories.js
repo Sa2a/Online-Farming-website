@@ -3,8 +3,9 @@ import logobasil from "../../assets/photo/basil-leaf-1-1-1-1-1-1-1-1-1.png";
 import CategoryCard from '../CategoryCard';
 import React, { Component, useEffect, useRef, useState } from 'react';
 import { ScrollView } from "@cantonjs/react-scroll-view";
-import {  mapStateToPropsCategoryDocs } from "../../ulilities/constants";
+import { mapStateToPropsCategoryDocs } from "../../ulilities/constants";
 import { connect } from "react-redux";
+import SectionHeader from "./SectionHeader";
 
 // export default
 class Categories extends Component {
@@ -19,11 +20,11 @@ class Categories extends Component {
 
     }
     componentDidUpdate(prevProps) {
-        if(this.props.categoryDocs !== prevProps.categoryDocs) // Check if it's a new user, you can also use some unique property, like the ID  (this.props.user.id !== prevProps.user.id)
+        if (this.props.categoryDocs !== prevProps.categoryDocs) // Check if it's a new user, you can also use some unique property, like the ID  (this.props.user.id !== prevProps.user.id)
         {
             this.getCategories();
         }
-    } 
+    }
     getCategories() {
         let cats = [];
         let docs = this.props.categoryDocs;//useSelector(state => state.categoryDocs);
@@ -44,7 +45,8 @@ class Categories extends Component {
     render() {
         return (
             <>
-                <section className="elementor-section elementor-top-section elementor-element elementor-element-1d2289e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1d2289e" data-element_type="section">
+
+                {/* <section className="elementor-section elementor-top-section elementor-element elementor-element-1d2289e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1d2289e" data-element_type="section">
                     <div className="elementor-container elementor-column-gap-default">
                         <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a809201" data-id="a809201" data-element_type="column">
                             <div className="elementor-widget-wrap elementor-element-populated">
@@ -55,13 +57,15 @@ class Categories extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
-
+                </section> */}
+                <SectionHeader name="الأقسام الرئيسيه" style={{marginTop:50}}/>
                 <section dir="rtl" /*style={{overflowX: 'scroll'}}*/ className="elementor-section elementor-top-section elementor-element elementor-element-0a181d7 elementor-section-content-top elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0a181d7" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <div className="elementor-element elementor-element-e3141d4 elementor-widget elementor-widget-heading" data-id="e3141d4" data-element_type="widget" data-widget_type="heading.default">
                         <div className="elementor-widget-container">
-                            <h2 className="elementor-heading-title elementor-size-default">الأقسام الرئيسيه</h2>                                        		</div>
-                    </div> <ScrollView isHorizontal={true} style={{ marginRight: 5, marginLeftt: 5 }} >
+                            {/* <h2 className="elementor-heading-title elementor-size-default">الأقسام الرئيسيه</h2> */}
+                        </div>
+                    </div>
+                    <ScrollView isHorizontal={true} style={{ marginRight: 5, marginLeftt: 5 }} >
                         <div className="elementor-container elementor-column-gap-default">
 
                             {

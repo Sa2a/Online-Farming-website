@@ -11,6 +11,8 @@ const fbContactCollection = "contact";
 
 const homePage = "/home";
 const productsPage = "/products";
+const aboutUsPage = "/aboutus";
+const contactUsPage = "/contactus";
 
 const categoryID = "categoryID";
 const currency = "ج";
@@ -44,6 +46,9 @@ const mapStateToPropsContactDocs = (state) => {
 export {
   homePage,
   productsPage,
+  aboutUsPage,
+  contactUsPage,
+
   getCategoriesActionType,
   fbCategoryCollection,
   fbProductCollection,

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AboutUs from "./components/sections/AboutUs";
+import ContactUs from "./components/sections/ContactUs";
 import Footer from "./components/sections/Footer";
 import Header from "./components/sections/Header";
 import { db } from "./config/fb_config";
 import Home from "./pages/Home";
+import ProductItem from "./pages/ProductItem";
 import Products from "./pages/Products";
 import { getCategoryDocs, setCategoryDocs, setContactDocs } from "./store/actions";
 import Test from "./Test";
-import { categoryID, fbCategoryCollection, fbContactCollection, homePage, productsPage } from "./ulilities/constants";
+import { aboutUsPage, categoryID, contactUsPage, fbCategoryCollection, fbContactCollection, homePage, productsPage } from "./ulilities/constants";
 
 const categoryList = [];
 
@@ -122,9 +125,14 @@ function App() {
                           <Route exact path="/" element={<Home />} />
                           <Route exact path={homePage} element={<Home />} />
                           <Route exact path={productsPage} element={<Products />} >
-
                             <Route path={`:${categoryID}`} element={<Products />} />
+                            {/* <Route path={`:${categoryID}`} element={<Products />} /> */}
+
                           </Route>
+                          <Route exact path={aboutUsPage} element={<AboutUs />} />
+                          <Route exact path={contactUsPage} element={<ContactUs />} />
+                          <Route path={"/productitem"} element={<ProductItem />} />
+
                           {/* 
                         <Route path="/test" element={<Test />}>
                           <Route
@@ -140,8 +148,8 @@ function App() {
                           <Route
                             path="*"
                             element={
-                              <main style={{ padding: "1rem" }}>
-                                <p>There's nothing here!</p>
+                              <main style={{ margin:100,padding: "1rem" }} className="center">
+                                <h1>لا يوجد شئ هنا!</h1>
                               </main>
                             }
                           />
