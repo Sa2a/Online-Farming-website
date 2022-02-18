@@ -13,10 +13,13 @@ const homePage = "/home";
 const productsPage = "/products";
 const aboutUsPage = "/aboutus";
 const contactUsPage = "/contactus";
+const productItemPage = "/productItem";
+const cartPage = "/cart";
 
 const categoryID = "categoryID";
+const productID = "productID";
 const currency = "ج";
-
+const productsNumLimit = 8;
 
 const getCategoriesActionType = "getCategories";
 
@@ -38,9 +41,29 @@ const mapStateToPropsCategoryDocs = (state) => {
     categoryDocs: state.categoryDocs
   }
 }
+const mapStateToPropsCategoryCartDocs = (state) => {
+  return {
+    categoryDocs: state.categoryDocs,
+    cartProducts:state.cartProducts
+  }
+}
 const mapStateToPropsContactDocs = (state) => {
   return {
     contactDocs: state.contactDocs
+  }
+}
+const mapStateToPropsProductItem = (state) => {
+  return {
+    productItem: state.productItem,
+    categoryDocs: state.categoryDocs,
+
+  }
+}
+const mapStateToPropsCartProducts = (state) => {
+  return {
+    cartProducts: state.cartProducts,
+    contactDocs: state.contactDocs
+
   }
 }
 export {
@@ -48,17 +71,23 @@ export {
   productsPage,
   aboutUsPage,
   contactUsPage,
+  productItemPage,
+  cartPage,
 
+  productsNumLimit,
   getCategoriesActionType,
   fbCategoryCollection,
   fbProductCollection,
   fbContactCollection,
-
+  productID,
   Item,
 
   categoryID,
   currency,
   mapStateToPropsCategoryDocs,
   mapStateToPropsContactDocs,
+  mapStateToPropsCategoryCartDocs,
+  mapStateToPropsProductItem,
+  mapStateToPropsCartProducts
   
 }

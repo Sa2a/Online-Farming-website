@@ -6,12 +6,13 @@ import ContactUs from "./components/sections/ContactUs";
 import Footer from "./components/sections/Footer";
 import Header from "./components/sections/Header";
 import { db } from "./config/fb_config";
+import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import ProductItem from "./pages/ProductItem";
 import Products from "./pages/Products";
 import { getCategoryDocs, setCategoryDocs, setContactDocs } from "./store/actions";
 import Test from "./Test";
-import { aboutUsPage, categoryID, contactUsPage, fbCategoryCollection, fbContactCollection, homePage, productsPage } from "./ulilities/constants";
+import { aboutUsPage, cartPage, categoryID, contactUsPage, fbCategoryCollection, fbContactCollection, homePage, productID, productItemPage, productsPage } from "./ulilities/constants";
 
 const categoryList = [];
 
@@ -129,9 +130,15 @@ function App() {
                             {/* <Route path={`:${categoryID}`} element={<Products />} /> */}
 
                           </Route>
+                          <Route exact path={productItemPage} element={<ProductItem />} >
+                            <Route path={`:${productID}`} element={<ProductItem />} />
+                            {/* <Route path={`:${categoryID}`} element={<Products />} /> */}
+
+                          </Route>
                           <Route exact path={aboutUsPage} element={<AboutUs />} />
                           <Route exact path={contactUsPage} element={<ContactUs />} />
-                          <Route path={"/productitem"} element={<ProductItem />} />
+                          <Route exact path={cartPage} element={<Cart />} />
+                          {/* <Route path={"/productitem"} element={<ProductItem />} /> */}
 
                           {/* 
                         <Route path="/test" element={<Test />}>

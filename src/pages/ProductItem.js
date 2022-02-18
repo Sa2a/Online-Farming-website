@@ -1,10 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { Button } from 'reactstrap';
+import logo from "../assets/photo/logo.jpg"
+import { addToCart } from '../store/actions';
+import { currency, mapStateToPropsProductItem } from '../ulilities/constants';
 
-export default function ProductItem() {
+function ProductItem(props) {
+
+    const dispatch = useDispatch();
+    const [amount,setAmount]  = useState(1);
+    const { productID } = useParams();
+    let product = props.productItem ? props.productItem : null;
+    const categoryDocs = props.categoryDocs;
+    const categoryID = product ? product.categoryID : null;
+    let category = categoryDocs.find((doc) => doc.id === categoryID);
+    const categoryName = category ? category.data().name : "لا يوجد قسم";
+    function updateAmount(evt) {
+        setAmount(evt.target.value);
+      
+    }
+
     return <>
 
 
-    
+        <section className="elementor-section elementor-top-section elementor-element elementor-element-a584ef8 elementor-section-content-middle elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a584ef8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+            <div className="elementor-background-overlay"></div>
+            <div className="elementor-container elementor-column-gap-default">
+                <div className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b7bcb4e" data-id="b7bcb4e" data-element_type="column">
+                    <div className="elementor-widget-wrap elementor-element-populated">
+                        <div className="elementor-element elementor-element-b9d7191 elementor-widget elementor-widget-image"
+                            data-id="b9d7191" data-element_type="widget" data-widget_type="image.default">
+                            <div className="elementor-widget-container">
+                                <style>
+                                    {`.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}`}</style>
+                                <img width="634" height="543" src={product ? product.image.length===0?logo:product.image : logo} className="attachment-full size-full" alt="" loading="lazy" sizes="(max-width: 634px) 100vw, 634px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div dir='rtl' className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-39d5465"
+                    data-id="39d5465" data-element_type="column">
+                    <div className="elementor-widget-wrap elementor-element-populated">
+                        <div className="elementor-element elementor-element-ea87ceb elementor-position-right elementor-vertical-align-top elementor-widget elementor-widget-image-box"
+                            data-id="ea87ceb" data-element_type="widget" data-widget_type="image-box.default">
+                            <div className="elementor-widget-container">
+                                <style>/*! elementor - v3.5.2 - 22-12-2021 */
+                                    {`.elementor-widget-image-box .elementor-image-box-content{width:100%}@media (min-width:768px){.elementor - widget - image - box.elementor - position - left.elementor - image - box - wrapper,.elementor - widget - image - box.elementor - position - right.elementor - image - box - wrapper{display:-webkit-box;display:-ms-flexbox;display:flex}.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{text - align:right;-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper{text - align:left;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.elementor-widget-image-box.elementor-position-top .elementor-image-box-img{margin:auto}.elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper{-webkit - box - align:start;-ms-flex-align:start;align-items:flex-start}.elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper{-webkit - box - align:center;-ms-flex-align:center;align-items:center}.elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper{-webkit - box - align:end;-ms-flex-align:end;align-items:flex-end}}@media (max-width:767px){.elementor - widget - image - box.elementor - image - box - img{margin - left:auto!important;margin-right:auto!important;margin-bottom:15px}}.elementor-widget-image-box .elementor-image-box-img{display:inline-block}.elementor-widget-image-box .elementor-image-box-title a{color:inherit}.elementor-widget-image-box .elementor-image-box-wrapper{text - align:center}.elementor-widget-image-box .elementor-image-box-description{margin:0}`}
+                                </style>
+                                <h1>{product ? product.name : null}</h1>
+                                <h2>{product ? product.price+ currency : null}</h2>
+                                <p>{categoryName}</p>
+                            </div>
+                        </div>
+                        <div dir='ltr' style={{ marginLeft: "auto", marginRight: 'auto', verticalAlign: "right" }} className="center elementor-element elementor-element-d66ca90 elementor-align-left elementor-mobile-align-center elementor-tablet-align-left elementor-widget elementor-widget-button" data-id="d66ca90" data-element_type="widget" data-widget_type="button.default">
+                            <div className="elementor-widget-container">
+                                <div className="elementor-button-wrapper" size="small">
+                                   <div className="quantity">
+                                        <input onChange={updateAmount} type="number" id="quantity_620fb702daec2" className="input-text qty text" step="1" min="1" max=""
+                                            name="quantity" defaultValue={1} title="Qty"  inputMode="numeric" autoComplete="off" />
+                                   
+                                   <Button
+                                   disabled={!product}
+                                        onClick={() => {
+                                            dispatch(addToCart(productID,product, amount));
+                                        }}
+                                        size="lg" color="success" style={{ fontSize: 15 }}>
+                                        <span style={{ margin: 10 }} className="elementor-button-icon elementor-align-icon-left">
+                                            <i aria-hidden="true" className="fas fa-cart-plus"></i>
+                                        </span>
+                                        اضافه الى السلة
+                                    </Button> </div> 
+                                    
+                                    
+                                    {/* <a href={aboutUsPage} className="elementor-button-link elementor-button elementor-size-md" role="button">
+                                            <span className="elementor-button-content-wrapper" >
+                                                <span className="elementor-button-icon elementor-align-icon-left">
+                                                    <i aria-hidden="true" className="fas fa-address-card"></i>			</span>
+                                                <span className="elementor-button-text" >من نحن </span>
+                                            </span>
+                                        </a> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         {/* <div style={{ marginTop: 100 }}  id="content" className="site-content">
             <div className="ast-container">
@@ -216,3 +299,4 @@ export default function ProductItem() {
         </div> */}
     </>;
 }
+export default connect(mapStateToPropsProductItem)(ProductItem);

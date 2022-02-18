@@ -10,7 +10,7 @@ function Services() {
                             <div className="elementor-widget-container">
                                 <style>/*! elementor - v3.5.3 - 28-12-2021 */
                                     {`@media (min-width:768px){.elementor-widget-icon-box.elementor-position-left .elementor-icon-box-wrapper,.elementor-widget-icon-box.elementor-position-right .elementor-icon-box-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex}.elementor-widget-icon-box.elementor-position-left .elementor-icon-box-icon,.elementor-widget-icon-box.elementor-position-right .elementor-icon-box-icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}.elementor-widget-icon-box.elementor-position-right .elementor-icon-box-wrapper{text-align:right;-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.elementor-widget-icon-box.elementor-position-left .elementor-icon-box-wrapper{text-align:left;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.elementor-widget-icon-box.elementor-position-top .elementor-icon-box-img{margin:auto}.elementor-widget-icon-box.elementor-vertical-align-top .elementor-icon-box-wrapper{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.elementor-widget-icon-box.elementor-vertical-align-middle .elementor-icon-box-wrapper{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.elementor-widget-icon-box.elementor-vertical-align-bottom .elementor-icon-box-wrapper{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}}@media (max-width:767px){.elementor-widget-icon-box .elementor-icon-box-icon{margin-left:auto!important;margin-right:auto!important;margin-bottom:15px}}.elementor-widget-icon-box .elementor-icon-box-wrapper{text-align:center}.elementor-widget-icon-box .elementor-icon-box-title a{color:inherit}.elementor-widget-icon-box .elementor-icon-box-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}.elementor-widget-icon-box .elementor-icon-box-description{margin:0}`}
-                                </style>		
+                                </style>
                                 <div className="elementor-icon-box-wrapper">
                                     <div className="elementor-icon-box-icon">
                                         <a className="elementor-icon elementor-animation-" href="#">
@@ -18,11 +18,13 @@ function Services() {
                                     </div>
                                     <div className="elementor-icon-box-content">
                                         <h4 className="elementor-icon-box-title">
-                                            <a href="#">
-                                                Free Shipping					</a>
+                                           
+                                                خدمة التوصيل
+                                            
                                         </h4>
                                         <p className="elementor-icon-box-description">
-                                            Above $5 Only					</p>
+                                            لجمبع المحافظات				
+                                            	</p>
                                     </div>
                                 </div>
                             </div>
@@ -42,10 +44,10 @@ function Services() {
                                     <div className="elementor-icon-box-content">
                                         <h4 className="elementor-icon-box-title">
                                             <a href="#">
-                                                Certified Organic					</a>
+                                                شهادة العضوية					</a>
                                         </h4>
                                         <p className="elementor-icon-box-description">
-                                            100% Guarantee 					</p>
+                                            100% ضمان 					</p>
                                     </div>
                                 </div>
                             </div>
@@ -65,10 +67,11 @@ function Services() {
                                     <div className="elementor-icon-box-content">
                                         <h4 className="elementor-icon-box-title">
                                             <a href="#">
-                                                Huge Savings					</a>
+                                                مدخرات ضخمة					</a>
                                         </h4>
                                         <p className="elementor-icon-box-description">
-                                            At Lowest Price					</p>
+                                            بأقل الأسعار
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -88,10 +91,12 @@ function Services() {
                                     <div className="elementor-icon-box-content">
                                         <h4 className="elementor-icon-box-title">
                                             <a href="#">
-                                                Easy Returns					</a>
+                                            عوائد سهلة					
+                                            </a>
                                         </h4>
                                         <p className="elementor-icon-box-description">
-                                            No Questions Asked					</p>
+                                        لا يتم طرح أسئلة					
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -8,13 +8,13 @@ import {
     Collapse,
     Media,
     Nav,
-   
+
     Navbar,
     NavbarBrand,
     NavbarToggler,
     NavItem
 } from 'reactstrap';
-import { aboutUsPage, contactUsPage, homePage, mapStateToPropsCategoryDocs, productsPage } from '../../ulilities/constants';
+import { aboutUsPage, cartPage, contactUsPage, homePage, mapStateToPropsCategoryCartDocs, mapStateToPropsCategoryDocs, productsPage } from '../../ulilities/constants';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -66,6 +66,20 @@ class Header extends Component {
                 width: "100%", marginRight: 20,
             }}>
                 <NavItem style={this.navItemStyle} >
+                    <NavLink to={cartPage}>
+                        {/* <span className="fa-stack fa-2x has-badge" data-count="5">
+                            <i className="fa fa-circle fa-stack-2x"></i>
+                            <i className="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span> */}
+
+                        <span className="fa-stack fa-2x has-badge" data-count={this.props.cartProducts.length}>
+                            <i className="fa fa-circle fa-stack-2x fa-inverse"></i>
+                            <i className="fa fa-shopping-cart fa-stack-2x red-cart"></i>
+                        </span>
+                    </NavLink>
+                </NavItem>
+
+                <NavItem style={this.navItemStyle} >
                     <NavLink to={homePage}>
                         <button type="button" className="btn btn-outline-success">الرئيسيه</button>
 
@@ -95,6 +109,8 @@ class Header extends Component {
 
                     </NavLink>
                 </NavItem>
+
+                
                 {/* <NavItem>
                 <a href="https://www.facebook.com/angularjswiki" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -108,36 +124,36 @@ class Header extends Component {
 
     render() {
         return (
-<>
-            <Navbar dir="rtl" fixed='top' light expand="md" style={{
-                margin:"auto",
-                backgroundColor: "white",
-                boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
-                transition: "0.3s",
-                display: 'flex',  justifyContent:'center', alignItems:'center',
-                alignSelf: 'stretch',
-            }}>
-                <NavbarBrand>
-                    <Link to="/home" className="left brand-logo" style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                        <Media left  >
-                            <Media height="50" width="50" object style={{ marginRight: 10, marginLeft: 10 }}
-                                src={logo} alt="Generic placeholder image" />
-                            زراعه أون لاين
-                        </Media>
-                    </Link>
-                </NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
-                <Collapse isOpen={this.state.isOpen} navbar>
-                    {this.getNav()}
-                    {/* <div className="bg-light border ms-auto">
+            <>
+                <Navbar dir="rtl" fixed='top' light expand="md" style={{
+                    margin: "auto",
+                    backgroundColor: "white",
+                    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                    transition: "0.3s",
+                    display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    alignSelf: 'stretch',
+                }} >
+                    <NavbarBrand>
+                        <Link to="/home" className="left brand-logo" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                            <Media left  >
+                                <Media height="50" width="50" object style={{ marginRight: 10, marginLeft: 10 }}
+                                    src={logo} alt="Generic placeholder image" />
+                                زراعه أون لاين
+                            </Media>
+                        </Link>
+                    </NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        {this.getNav()}
+                        {/* <div className="bg-light border ms-auto">
                             <NavItem>
                                 <Link to="/home">
                                     <Button color='primary'>Home</Button>
                                 </Link>
                             </NavItem></div> */}
-                </Collapse>
+                    </Collapse>
 
-            </Navbar>
+                </Navbar>
             </>
 
 
@@ -223,4 +239,4 @@ class Header extends Component {
         );
     }
 }
-export default connect(mapStateToPropsCategoryDocs)(Header);
+export default connect(mapStateToPropsCategoryCartDocs)(Header);

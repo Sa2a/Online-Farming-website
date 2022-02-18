@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './css/App.css';
 // import './css/index.css';
+import './css/cart.css';
+
 import './css/elementor.css';
 import './css/astra.css';
 // import './css/content.css';

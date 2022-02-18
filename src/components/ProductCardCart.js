@@ -68,23 +68,8 @@ export default function ProductCard(props) {
       </CardActionArea>
       </Link>
       <CardActions>
-        <Button 
-        
-        onClick={()=>{
-          dispatch(addToCart(props.id,props.product,1));
-        }}
-        size="small" color="success" style={{ color: "green", fontSize: 15 }}>
-          <span style={{ margin: 10 }} className="elementor-button-icon elementor-align-icon-left">
-            <i aria-hidden="true" className="fas fa-cart-plus"></i>
-          </span>
-         
-          اضافه الى السلة
-          
-        </Button>
-         {/* <div className="quantity">
-          <input type="number" id="quantity_620fb702daec2" className="input-text qty text" step="1" min="1" max=""
-            name="quantity" defaultValue={1} title="Qty" size="5"  inputMode="numeric" autoComplete="off" />
-        </div> */}
+      <p>الكميه :{props.amount}</p>
+
       </CardActions>
 
     </Card>

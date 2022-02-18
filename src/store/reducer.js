@@ -3,13 +3,50 @@ import { fbCategoryCollection, getCategoriesActionType } from "../ulilities/cons
 
 const initialState = {
     categoryDocs: [],
-    contactDocs:null
+    contactDocs: null,
+    productItem:null,
+
+    cartProducts: []
 }
 
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
 
+
+        case "addToCart":
+            const productID = action.id;
+            const catProducts = state.cartProducts.filter((p) => p["id"] !== productID);
+            // if ( catProduct !==undefined) {
+            //     const cart = state.cartProducts.re
+            //     return {
+            //         ...state,
+            //         cartProducts: [
+            //             ...state.cartProducts,
+            //             {
+            //                 "product": action.product,
+            //                 "amount": action.amount
+            //             }
+            //         ]
+            //     };
+            // }
+
+            return {
+                ...state,
+                cartProducts: [
+                    ...catProducts,
+                    {
+                        "id": action.id,
+                        "product": action.product,
+                        "amount": action.amount
+                    }
+                ]
+            };
+        case "setProductItem":
+            return {
+                ...state,
+                productItem:action.product
+            }
         case "setCategoryDocs":
             return {
                 ...state,

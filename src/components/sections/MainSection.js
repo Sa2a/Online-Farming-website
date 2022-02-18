@@ -1,7 +1,7 @@
 import React from 'react';
 import logoMain from "../../assets/photo/organic-products-hero-1-1-1-1-1-1-1-1-1.png";
 import logoLoaf from "../../assets/photo/logo-leaf-new-1-1-1-1-1-1-1-1-1.png";
-import { contactUsPage } from '../../ulilities/constants';
+import { aboutUsPage, contactUsPage } from '../../ulilities/constants';
 
 export default function MainSection() {
     return (
@@ -50,11 +50,11 @@ export default function MainSection() {
                             <div dir='ltr' style={{ marginLeft: "auto",marginRight: 'auto',verticalAlign: "right"}} className="center elementor-element elementor-element-d66ca90 elementor-align-left elementor-mobile-align-center elementor-tablet-align-left elementor-widget elementor-widget-button" data-id="d66ca90" data-element_type="widget" data-widget_type="button.default">
                                 <div className="elementor-widget-container">
                                     <div className="elementor-button-wrapper">
-                                        <a href={contactUsPage} className="elementor-button-link elementor-button elementor-size-md" role="button">
+                                        <a href={aboutUsPage} className="elementor-button-link elementor-button elementor-size-md" role="button">
                                             <span className="elementor-button-content-wrapper" >
                                                 <span className="elementor-button-icon elementor-align-icon-left">
-                                                    <i aria-hidden="true" className="fas fa-phone"></i>			</span>
-                                                <span className="elementor-button-text" >تواصل معنا </span>
+                                                    <i aria-hidden="true" className="fas fa-address-card"></i>			</span>
+                                                <span className="elementor-button-text" >من نحن </span>
                                             </span>
                                         </a>
                                     </div>

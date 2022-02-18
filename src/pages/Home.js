@@ -26,7 +26,7 @@ class Home extends Component {
                     
                 > TEst</Link>*/}
                 <Categories />
-                <Offer />
+                {/* <Offer /> */}
             </>
         );
     }
